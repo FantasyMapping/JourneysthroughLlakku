@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_92c382da666968046ea829155c1649cc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_92c382da666968046ea829155c1649cc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_92c382da666968046ea829155c1649cc = L.map(
+                "map_92c382da666968046ea829155c1649cc",
+                {
+                    center: [40.7128, -74.006],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1ccfbb960512844c78d9ec4353c4c9ba = L.tileLayer(
+                "World Map/tileshires/{z}/{x}/{-y}.png",
+                {"attribution": "World Map", "detectRetina": false, "maxNativeZoom": 8, "maxZoom": 8, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+            var mouse_position_a77bfdcc8458729ee6434da4ba9fc175 = new L.Control.MousePosition(
+                {"emptyString": "NaN", "lngFirst": true, "numDigits": 20, "position": "topright", "prefix": "Coordinates:", "separator": " | "}
+            );
+            mouse_position_a77bfdcc8458729ee6434da4ba9fc175.options["latFormatter"] =
+                function(num) {return L.Util.formatNum(num, 5) + ' º ';};;
+            mouse_position_a77bfdcc8458729ee6434da4ba9fc175.options["lngFormatter"] =
+                function(num) {return L.Util.formatNum(num, 5) + ' º ';};;
+            map_92c382da666968046ea829155c1649cc.addControl(mouse_position_a77bfdcc8458729ee6434da4ba9fc175);
+        
+    
+            var marker_2cad812dea92c9a2a4ccc26874efe80a = L.marker(
+                [10.31492, -103.35938],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_33d343acb2302faa4e33f6f81f8ef53c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_60d62d3b58f33ee9240b10a221bc4e2a = $(`<div id="html_60d62d3b58f33ee9240b10a221bc4e2a" style="width: 100.0%; height: 100.0%;">Llewllaff</div>`)[0];
+                popup_33d343acb2302faa4e33f6f81f8ef53c.setContent(html_60d62d3b58f33ee9240b10a221bc4e2a);
+            
+        
+
+        marker_2cad812dea92c9a2a4ccc26874efe80a.bindPopup(popup_33d343acb2302faa4e33f6f81f8ef53c)
+        ;
+
+        
+    
+    
+            var marker_8bc8ff3280e0d4932957d94e033cf992 = L.marker(
+                [26.64746, -93.66943],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_cec68d50e7f817fbd1196e2591bfbcd9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b1ae525f7f6f71955a2bea14707097e7 = $(`<div id="html_b1ae525f7f6f71955a2bea14707097e7" style="width: 100.0%; height: 100.0%;">Y'Bent</div>`)[0];
+                popup_cec68d50e7f817fbd1196e2591bfbcd9.setContent(html_b1ae525f7f6f71955a2bea14707097e7);
+            
+        
+
+        marker_8bc8ff3280e0d4932957d94e033cf992.bindPopup(popup_cec68d50e7f817fbd1196e2591bfbcd9)
+        ;
+
+        
+    
+    
+            var marker_cfa0568e9dac7549c339726ec08e9802 = L.marker(
+                [29.45873, -99.06205],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_916cdcc8c89f72be0044095f5f1c20d3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7840cd5d7a7d1caf3010d464f3500a3f = $(`<div id="html_7840cd5d7a7d1caf3010d464f3500a3f" style="width: 100.0%; height: 100.0%;">Golden Helm</div>`)[0];
+                popup_916cdcc8c89f72be0044095f5f1c20d3.setContent(html_7840cd5d7a7d1caf3010d464f3500a3f);
+            
+        
+
+        marker_cfa0568e9dac7549c339726ec08e9802.bindPopup(popup_916cdcc8c89f72be0044095f5f1c20d3)
+        ;
+
+        
+    
+    
+            var marker_22b686efdf958139c9a89d505add2b76 = L.marker(
+                [53.56641, -69.03809],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_3f3551fb7bbb8537b4f9cbea719fbbe7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a4364db333d7d1bc6afc61e55962eb20 = $(`<div id="html_a4364db333d7d1bc6afc61e55962eb20" style="width: 100.0%; height: 100.0%;">Pears</div>`)[0];
+                popup_3f3551fb7bbb8537b4f9cbea719fbbe7.setContent(html_a4364db333d7d1bc6afc61e55962eb20);
+            
+        
+
+        marker_22b686efdf958139c9a89d505add2b76.bindPopup(popup_3f3551fb7bbb8537b4f9cbea719fbbe7)
+        ;
+
+        
+    
+    
+            var marker_027445bdfcf642edcea1bd6e763d5810 = L.marker(
+                [5.40821, -9.7229],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_6f6bb9ae967180a0d2b02f9c739e6ce0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_add0af6e93fe15d50a745a80a802afae = $(`<div id="html_add0af6e93fe15d50a745a80a802afae" style="width: 100.0%; height: 100.0%;">Griffin Peak</div>`)[0];
+                popup_6f6bb9ae967180a0d2b02f9c739e6ce0.setContent(html_add0af6e93fe15d50a745a80a802afae);
+            
+        
+
+        marker_027445bdfcf642edcea1bd6e763d5810.bindPopup(popup_6f6bb9ae967180a0d2b02f9c739e6ce0)
+        ;
+
+        
+    
+    
+            var marker_c947fb9db0e1d9bc400a70ccb384824f = L.marker(
+                [51.5634, -95.58105],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_01ff3406e726f2d3307eb6ce9363cf7f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7afbbe349e83abad723d09b881b44508 = $(`<div id="html_7afbbe349e83abad723d09b881b44508" style="width: 100.0%; height: 100.0%;">Seventh Star</div>`)[0];
+                popup_01ff3406e726f2d3307eb6ce9363cf7f.setContent(html_7afbbe349e83abad723d09b881b44508);
+            
+        
+
+        marker_c947fb9db0e1d9bc400a70ccb384824f.bindPopup(popup_01ff3406e726f2d3307eb6ce9363cf7f)
+        ;
+
+        
+    
+    
+            var marker_8d0757d40ba6d03d0acac9b4c44a9465 = L.marker(
+                [62.34961, -105.0293],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_7ebdc8856337b6ed1e0a99dc11cffcc2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9d14218c43577323ea22f0a306ef9b7d = $(`<div id="html_9d14218c43577323ea22f0a306ef9b7d" style="width: 100.0%; height: 100.0%;">Reich</div>`)[0];
+                popup_7ebdc8856337b6ed1e0a99dc11cffcc2.setContent(html_9d14218c43577323ea22f0a306ef9b7d);
+            
+        
+
+        marker_8d0757d40ba6d03d0acac9b4c44a9465.bindPopup(popup_7ebdc8856337b6ed1e0a99dc11cffcc2)
+        ;
+
+        
+    
+    
+            var marker_5c8719ebe210f2025e51c383d1305bbf = L.marker(
+                [60.19616, -71.80664],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_d0c5403063bb6319f4aeda9b1dcefa40 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7e76dae8134979789abfa05cd4c55568 = $(`<div id="html_7e76dae8134979789abfa05cd4c55568" style="width: 100.0%; height: 100.0%;">Ruins of Graecity (Underground)?</div>`)[0];
+                popup_d0c5403063bb6319f4aeda9b1dcefa40.setContent(html_7e76dae8134979789abfa05cd4c55568);
+            
+        
+
+        marker_5c8719ebe210f2025e51c383d1305bbf.bindPopup(popup_d0c5403063bb6319f4aeda9b1dcefa40)
+        ;
+
+        
+    
+    
+            var marker_28a3afdd041cd9f2808b0448ba09b396 = L.marker(
+                [26.77994, -92.30164],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_c45495b69790d00f6efe0cc81c202eeb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3a27811fbdea2d20374350a3f6c8fc5f = $(`<div id="html_3a27811fbdea2d20374350a3f6c8fc5f" style="width: 100.0%; height: 100.0%;">Fish Bay (Underground)?</div>`)[0];
+                popup_c45495b69790d00f6efe0cc81c202eeb.setContent(html_3a27811fbdea2d20374350a3f6c8fc5f);
+            
+        
+
+        marker_28a3afdd041cd9f2808b0448ba09b396.bindPopup(popup_c45495b69790d00f6efe0cc81c202eeb)
+        ;
+
+        
+    
+    
+            var marker_e26b24ffcecd7eba923363a5aeb37803 = L.marker(
+                [46.30006, -89.67041],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_654e77ab23bd6ee07e44614e9f1280b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6dd5c7a92d177f51b6a93ff97e2b6682 = $(`<div id="html_6dd5c7a92d177f51b6a93ff97e2b6682" style="width: 100.0%; height: 100.0%;">The University (Underground)?</div>`)[0];
+                popup_654e77ab23bd6ee07e44614e9f1280b8.setContent(html_6dd5c7a92d177f51b6a93ff97e2b6682);
+            
+        
+
+        marker_e26b24ffcecd7eba923363a5aeb37803.bindPopup(popup_654e77ab23bd6ee07e44614e9f1280b8)
+        ;
+
+        
+    
+    
+            var marker_7cc304cf02caeead4be86565e34d313e = L.marker(
+                [48.3416, -88.72559],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_b851a9980313a4c488c7433062d126e9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0b54ff83e42d530639fca94e0761314e = $(`<div id="html_0b54ff83e42d530639fca94e0761314e" style="width: 100.0%; height: 100.0%;">Southton (Underground)?</div>`)[0];
+                popup_b851a9980313a4c488c7433062d126e9.setContent(html_0b54ff83e42d530639fca94e0761314e);
+            
+        
+
+        marker_7cc304cf02caeead4be86565e34d313e.bindPopup(popup_b851a9980313a4c488c7433062d126e9)
+        ;
+
+        
+    
+    
+            var marker_93b85c5a184f8542535c13832b4dc678 = L.marker(
+                [45.22074, -106.25977],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_275aa1091d8326878f163c7c46ad94b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d7309fea7434527de5c5da07ed958ef6 = $(`<div id="html_d7309fea7434527de5c5da07ed958ef6" style="width: 100.0%; height: 100.0%;">The Holy City</div>`)[0];
+                popup_275aa1091d8326878f163c7c46ad94b3.setContent(html_d7309fea7434527de5c5da07ed958ef6);
+            
+        
+
+        marker_93b85c5a184f8542535c13832b4dc678.bindPopup(popup_275aa1091d8326878f163c7c46ad94b3)
+        ;
+
+        
+    
+    
+            var marker_4cff404218046b15099881e6b5af65fd = L.marker(
+                [51.08282, -63.94643],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_ff184649863891d07a3975906535f1ee = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a9f237ae52b251c1561e06af9345efcb = $(`<div id="html_a9f237ae52b251c1561e06af9345efcb" style="width: 100.0%; height: 100.0%;">Iron City (Underground)?</div>`)[0];
+                popup_ff184649863891d07a3975906535f1ee.setContent(html_a9f237ae52b251c1561e06af9345efcb);
+            
+        
+
+        marker_4cff404218046b15099881e6b5af65fd.bindPopup(popup_ff184649863891d07a3975906535f1ee)
+        ;
+
+        
+    
+    
+            var marker_584ab06a433ecbb4dddebb2dadb93a82 = L.marker(
+                [45.6294, -54.97559],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_c9da7a34dba2212dd65775f7c25200cf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cf5579aa47ec99f732f8ff43b142bf39 = $(`<div id="html_cf5579aa47ec99f732f8ff43b142bf39" style="width: 100.0%; height: 100.0%;">The Devoted</div>`)[0];
+                popup_c9da7a34dba2212dd65775f7c25200cf.setContent(html_cf5579aa47ec99f732f8ff43b142bf39);
+            
+        
+
+        marker_584ab06a433ecbb4dddebb2dadb93a82.bindPopup(popup_c9da7a34dba2212dd65775f7c25200cf)
+        ;
+
+        
+    
+    
+            var marker_de46395f0f11f76c2e3cc93f2b923a9d = L.marker(
+                [58.11852, -68.6865],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_994f7d3bf0991ffd2e9a09378b27db99 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6780311218f77ff6be75e92b6bd9487 = $(`<div id="html_e6780311218f77ff6be75e92b6bd9487" style="width: 100.0%; height: 100.0%;">Nyr Dyvn Greatlake (Underground)?</div>`)[0];
+                popup_994f7d3bf0991ffd2e9a09378b27db99.setContent(html_e6780311218f77ff6be75e92b6bd9487);
+            
+        
+
+        marker_de46395f0f11f76c2e3cc93f2b923a9d.bindPopup(popup_994f7d3bf0991ffd2e9a09378b27db99)
+        ;
+
+        
+    
+    
+            var marker_66b51cd096991a72fcd00bd2583ba6b6 = L.marker(
+                [59.1159, -66.44531],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_bd4e6dcb3ac40e050e585e60a21040e5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d7693dbfdb65828f3e41e7b30386cc00 = $(`<div id="html_d7693dbfdb65828f3e41e7b30386cc00" style="width: 100.0%; height: 100.0%;">East Fort</div>`)[0];
+                popup_bd4e6dcb3ac40e050e585e60a21040e5.setContent(html_d7693dbfdb65828f3e41e7b30386cc00);
+            
+        
+
+        marker_66b51cd096991a72fcd00bd2583ba6b6.bindPopup(popup_bd4e6dcb3ac40e050e585e60a21040e5)
+        ;
+
+        
+    
+    
+            var marker_be3f35b601f0c468372c723e721c24a9 = L.marker(
+                [49.21042, -60.11719],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_baefbbf9f445f39150ab7dba9ca2970f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b532de3910a1dd3836773d0ebf9e676 = $(`<div id="html_7b532de3910a1dd3836773d0ebf9e676" style="width: 100.0%; height: 100.0%;">Tall Town</div>`)[0];
+                popup_baefbbf9f445f39150ab7dba9ca2970f.setContent(html_7b532de3910a1dd3836773d0ebf9e676);
+            
+        
+
+        marker_be3f35b601f0c468372c723e721c24a9.bindPopup(popup_baefbbf9f445f39150ab7dba9ca2970f)
+        ;
+
+        
+    
+    
+            var marker_9682e8b6ba1167e4e573b51104614f0a = L.marker(
+                [55.22902, -59.50195],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_29c235889b104d689d2df4e300897546 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d8254ec140857ae6d8e85f109f43c3d4 = $(`<div id="html_d8254ec140857ae6d8e85f109f43c3d4" style="width: 100.0%; height: 100.0%;">Calm Bay (Underground)?</div>`)[0];
+                popup_29c235889b104d689d2df4e300897546.setContent(html_d8254ec140857ae6d8e85f109f43c3d4);
+            
+        
+
+        marker_9682e8b6ba1167e4e573b51104614f0a.bindPopup(popup_29c235889b104d689d2df4e300897546)
+        ;
+
+        
+    
+    
+            var marker_ad20a5b94e991010809099a2331da791 = L.marker(
+                [47.29413, -53.34961],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_0934cc1cd341b74db7cd9fcea01911bc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4d7a245ab8ae020df0e435de52e3be3c = $(`<div id="html_4d7a245ab8ae020df0e435de52e3be3c" style="width: 100.0%; height: 100.0%;">Beachview (Underground)?</div>`)[0];
+                popup_0934cc1cd341b74db7cd9fcea01911bc.setContent(html_4d7a245ab8ae020df0e435de52e3be3c);
+            
+        
+
+        marker_ad20a5b94e991010809099a2331da791.bindPopup(popup_0934cc1cd341b74db7cd9fcea01911bc)
+        ;
+
+        
+    
+    
+            var marker_9a008f0429e7f437dde31a2155298183 = L.marker(
+                [40.58058, -89.64844],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_546b166cc6fc2911d676c8e7a7ebcb0b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_175fb8c526c81f8108a432b2824fb8b0 = $(`<div id="html_175fb8c526c81f8108a432b2824fb8b0" style="width: 100.0%; height: 100.0%;">Hotsprings (Underground)?</div>`)[0];
+                popup_546b166cc6fc2911d676c8e7a7ebcb0b.setContent(html_175fb8c526c81f8108a432b2824fb8b0);
+            
+        
+
+        marker_9a008f0429e7f437dde31a2155298183.bindPopup(popup_546b166cc6fc2911d676c8e7a7ebcb0b)
+        ;
+
+        
+    
+    
+            var marker_d66a6d1af0d02ad2279aa7bc6045d05b = L.marker(
+                [58.53959, -99.31641],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_1f6ad74055b52e7fc472bb489eab9b10 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f4e68446437eac122c1844d8d906cf45 = $(`<div id="html_f4e68446437eac122c1844d8d906cf45" style="width: 100.0%; height: 100.0%;">West Fort</div>`)[0];
+                popup_1f6ad74055b52e7fc472bb489eab9b10.setContent(html_f4e68446437eac122c1844d8d906cf45);
+            
+        
+
+        marker_d66a6d1af0d02ad2279aa7bc6045d05b.bindPopup(popup_1f6ad74055b52e7fc472bb489eab9b10)
+        ;
+
+        
+    
+    
+            var marker_3dc0140868d4a598fdf463da43ca6e41 = L.marker(
+                [19.72534, 30.19043],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_2ca2baf6b309f2c7f4e29b6c46d8211f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffb4c16e1ab7b33fe07ab40e3069cec0 = $(`<div id="html_ffb4c16e1ab7b33fe07ab40e3069cec0" style="width: 100.0%; height: 100.0%;">City of the God King</div>`)[0];
+                popup_2ca2baf6b309f2c7f4e29b6c46d8211f.setContent(html_ffb4c16e1ab7b33fe07ab40e3069cec0);
+            
+        
+
+        marker_3dc0140868d4a598fdf463da43ca6e41.bindPopup(popup_2ca2baf6b309f2c7f4e29b6c46d8211f)
+        ;
+
+        
+    
+    
+            var marker_d8b5baa011c93833ca76afcd1711733b = L.marker(
+                [48.10743, -95.27344],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_550b5e64f0d52dfb7cde831ba243f5d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_323fad9914f5d10fe59f2c039593c43d = $(`<div id="html_323fad9914f5d10fe59f2c039593c43d" style="width: 100.0%; height: 100.0%;">Dipolmat (Underground)?</div>`)[0];
+                popup_550b5e64f0d52dfb7cde831ba243f5d1.setContent(html_323fad9914f5d10fe59f2c039593c43d);
+            
+        
+
+        marker_d8b5baa011c93833ca76afcd1711733b.bindPopup(popup_550b5e64f0d52dfb7cde831ba243f5d1)
+        ;
+
+        
+    
+    
+            var marker_e7dc4731226606bae3b5f6745839b4f3 = L.marker(
+                [-5.41915, -101.57959],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_b1468ff695ac20a18a35a886ccd08233 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8ef00b554e3d3e267979b8afe5bf004e = $(`<div id="html_8ef00b554e3d3e267979b8afe5bf004e" style="width: 100.0%; height: 100.0%;">Pirate Kings</div>`)[0];
+                popup_b1468ff695ac20a18a35a886ccd08233.setContent(html_8ef00b554e3d3e267979b8afe5bf004e);
+            
+        
+
+        marker_e7dc4731226606bae3b5f6745839b4f3.bindPopup(popup_b1468ff695ac20a18a35a886ccd08233)
+        ;
+
+        
+    
+    
+            var marker_cdcbecd3ba9217ee61590240e89f873f = L.marker(
+                [5.09094, -114.16992],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_4dd1ef29f4117bc27b0ebe29631d2a95 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2dba5cc01987a79de546de895336113a = $(`<div id="html_2dba5cc01987a79de546de895336113a" style="width: 100.0%; height: 100.0%;">Roaring Heights (Underground)?</div>`)[0];
+                popup_4dd1ef29f4117bc27b0ebe29631d2a95.setContent(html_2dba5cc01987a79de546de895336113a);
+            
+        
+
+        marker_cdcbecd3ba9217ee61590240e89f873f.bindPopup(popup_4dd1ef29f4117bc27b0ebe29631d2a95)
+        ;
+
+        
+    
+    
+            var marker_e4cacdd80d486e5573963007f52cf9bf = L.marker(
+                [2.72338, -120.844961],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_016fa181e891cf87f9d563a2cd620573 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_57f4189781a2623f226106533cb721e7 = $(`<div id="html_57f4189781a2623f226106533cb721e7" style="width: 100.0%; height: 100.0%;">Botanical Bridge (Underground)?</div>`)[0];
+                popup_016fa181e891cf87f9d563a2cd620573.setContent(html_57f4189781a2623f226106533cb721e7);
+            
+        
+
+        marker_e4cacdd80d486e5573963007f52cf9bf.bindPopup(popup_016fa181e891cf87f9d563a2cd620573)
+        ;
+
+        
+    
+    
+            var marker_e7ab0733316707a1a48679d43ac9678a = L.marker(
+                [-8.14624, -106.08398],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_2f9359d4f21f2ef3ff8a3555e51e38d4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6ddd72da13474594e144ece1dcd84bad = $(`<div id="html_6ddd72da13474594e144ece1dcd84bad" style="width: 100.0%; height: 100.0%;">Southern Port (Underground)?</div>`)[0];
+                popup_2f9359d4f21f2ef3ff8a3555e51e38d4.setContent(html_6ddd72da13474594e144ece1dcd84bad);
+            
+        
+
+        marker_e7ab0733316707a1a48679d43ac9678a.bindPopup(popup_2f9359d4f21f2ef3ff8a3555e51e38d4)
+        ;
+
+        
+    
+    
+            var marker_df0f90356df827320a2f143bb7209a06 = L.marker(
+                [11.69527, -100.19531],
+                {}
+            ).addTo(map_92c382da666968046ea829155c1649cc);
+        
+    
+        var popup_f66f688bb20b88d46576afe41d19f45b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0939220b9c4ac13f657a604aa335053d = $(`<div id="html_0939220b9c4ac13f657a604aa335053d" style="width: 100.0%; height: 100.0%;">Llewllaff (Underground)</div>`)[0];
+                popup_f66f688bb20b88d46576afe41d19f45b.setContent(html_0939220b9c4ac13f657a604aa335053d);
+            
+        
+
+        marker_df0f90356df827320a2f143bb7209a06.bindPopup(popup_f66f688bb20b88d46576afe41d19f45b)
+        ;
+
+        
+    
+</script>
+</html>
