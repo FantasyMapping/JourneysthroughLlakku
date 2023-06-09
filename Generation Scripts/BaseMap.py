@@ -123,9 +123,9 @@ import geopandas as gpd
 from shapely.geometry import Polygon
 import pandas as pd
 data = pd.DataFrame({
-   'lon':[-103.35938, -93.66943, -99.06205, -69.16992,-9.7229,-95.58105,-105.0293,-71.80664,-92.30164,-89.67041,-88.72559,-106.25977,-63.94643,-54.97559,-68.6865,-66.44531,-60.11719,-59.50195,-53.34961,-89.64844,-99.31641,30.19043,-95.27344,-101.57959,-114.16992,-120.844961,-106.08398,-100.19531],
-   'lat':[10.31492, 26.64746, 29.45873, 50.40152,5.40821,51.5634,62.34961,60.19616,26.77994,46.30006,48.3416,45.22074,51.08282,45.6294,58.11852,59.1159,49.21042,55.22902,47.29413,40.58058,58.53959,19.72534,48.10743,-5.41915,5.09094,2.72338,-8.14624,11.69527],
-   'name':['Llewllaff', "Y'Bent", 'Golden Helm', 'Pears','Griffin Peak','Seventh Star','Reich','Ruins of Graecity (Underground)?','Fish Bay (Underground)?','The University (Underground)?', 'Southton (Underground)?','The Holy City','Iron City (Underground)?','The Devoted','Nyr Dyvn Greatlake (Underground)?','East Fort','Tall Town','Calm Bay (Underground)?','Beachview (Underground)?','Hotsprings (Underground)?','West Fort','City of the God King','Dipolmat (Underground)?','Pirate Kings','Roaring Heights (Underground)?','Botanical Bridge (Underground)?','Southern Port (Underground)?','Llewllaff (Underground)']
+   'lon':[-103.35938, -93.66943, -99.06205, -69.16992,-9.7229,-95.58105,-105.0293,-71.80664,-92.30164,-89.67041,-88.72559,-106.25977,-63.94643,-54.97559,-68.6865,-66.44531,-60.11719,-59.50195,-53.34961,-89.64844,-99.31641,30.19043,-95.27344,-101.57959,-114.16992,-120.844961,-106.08398,-100.19531,-61.45752,-72.99316],
+   'lat':[10.31492, 26.64746, 29.45873, 50.40152,5.40821,51.5634,62.34961,60.19616,26.77994,46.30006,48.3416,45.22074,51.08282,45.6294,58.11852,59.1159,49.21042,55.22902,47.29413,40.58058,58.53959,19.72534,48.10743,-5.41915,5.09094,2.72338,-8.14624,11.69527,51.72703,47.87214],
+   'name':['Llewllaff', "Y'Bent", 'Golden Helm', 'Pears','Griffin Peak','Seventh Star','Reich','Ruins of Graecity (Underground)?','Fish Bay (Underground)?','The University (Underground)?', 'Southton (Underground)?','The Holy City','Iron City (Underground)?','The Devoted','Nyr Dyvn Greatlake (Underground)?','East Fort','Tall Town','Calm Bay (Underground)?','Beachview (Underground)?','Hotsprings (Underground)?','West Fort','City of the God King','Dipolmat (Underground)?','Pirate Kings','Roaring Heights (Underground)?','Botanical Bridge (Underground)?','Southern Port (Underground)?','Llewllaff (Underground)','Mining Town','Southern Confluence?']
 }, dtype=str)
 
 CityData=pd.read_csv(Path("LlakkuCity.csv").as_posix())
@@ -138,23 +138,33 @@ GriffinPeakTerritory=pd.read_csv(Path(
     "GriffinPeakCommonwealth.csv").as_posix())
 ReichTerritory=pd.read_csv(Path(
     "Reich.csv").as_posix())
+TheLittleKingdoms=pd.read_csv(Path(
+    "TheLittleKingdoms.csv").as_posix())
 boundarypoints=[]
 for item in range(len(GriffinPeakTerritory['Lat'])):
     boundarypoints.append([GriffinPeakTerritory['Lat'][item],GriffinPeakTerritory['Lon'][item]])
-GriffinPeakBoundary= Polygon(boundarypoints)
+GriffinPeakBoundary = Polygon(boundarypoints)
 
 boundarypoints=[]
 for item in range(len(ReichTerritory['Lat'])):
     boundarypoints.append([ReichTerritory['Lat'][item],ReichTerritory['Lon'][item]])    
-ReichBoundary= Polygon(boundarypoints)
+ReichBoundary = Polygon(boundarypoints)
+
+boundarypoints=[]
+for item in range(len(TheLittleKingdoms['Lat'])):
+    boundarypoints.append([TheLittleKingdoms['Lat'][item],TheLittleKingdoms['Lon'][item]])
+TheLittleKingdomsBoundary = Polygon(boundarypoints)
+
 crs = {'init': 'epsg:4326'}
-ClaimedTerritory = gpd.GeoDataFrame(index=[0,1], crs=crs, geometry=[GriffinPeakBoundary,ReichBoundary])
-ClaimedTerritory["Territory"]=['Griffin Peak Commonwealth','Reich']
-ClaimedTerritory["RGBA"]=[[11, 127, 171, 1],[255, 76, 48, 1]]
+ClaimedTerritory = gpd.GeoDataFrame(index=[0,1,2], crs=crs, geometry=[GriffinPeakBoundary,
+                                                                    ReichBoundary,
+                                                                    TheLittleKingdomsBoundary])
+ClaimedTerritory["Territory"]=['Griffin Peak Commonwealth','Reich','The Little Kingdoms']
+ClaimedTerritory["RGBA"]=[[11, 127, 171, 1],[255, 76, 48, 1],[192,192,192,1]]
 
 
 #Add Claimed Boundaries
-# for key in ClaimedTerritory.iterrows():
+#for key in ClaimedTerritory.iterrows():
 #     footprint = key[1][0]
 #     fillColor = key[1][2]
 #     color = key[1][2]
@@ -169,7 +179,7 @@ ClaimedTerritory["RGBA"]=[[11, 127, 171, 1],[255, 76, 48, 1]]
 #         tooltip=folium.features.GeoJsonTooltip(key[1][1])
 #     )
 
-# feat.add_to(m)
+#feat.add_to(m)
 # style function from https://gis.stackexchange.com/questions/433810/folium-draw-and-highlight-polylines-with-distinct-colours-from-unique-geojson
 roads_style_function = lambda x: {
   # specifying properties from GeoJSON
@@ -189,7 +199,7 @@ roads_highlight_function = lambda x: {
 }
 
 folium.GeoJson(ClaimedTerritory.__geo_interface__,
-               name="National Boundaries", 
+               name="National Boundaries",
                style_function=lambda feature: {'fillColor': feature['properties']['RGBA'],
                                                'color' : feature['properties']['RGBA'],
                                                'weight' : 1,
@@ -197,7 +207,7 @@ folium.GeoJson(ClaimedTerritory.__geo_interface__,
                tooltip=folium.features.GeoJsonTooltip(["Territory"])
                ).add_to(m)
 
-for i in range(0,len(data)):
+for i in range(0,len(CityData)):
    folium.Marker(
       location=[CityData.iloc[i]['Lat'], CityData.iloc[i]['Lon']],
       popup=CityData.iloc[i]['Name'],
