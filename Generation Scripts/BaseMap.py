@@ -17,6 +17,7 @@ import scipy as sp
 import scipy.ndimage
 import branca
 
+
 tile_url = Path('./World Map/tileshires/{z}/{x}/{-y}.png')
 # Create a map centered at a specific location
 m = folium.Map(location=[40.7128, -74.0060], zoom_start=3, min_zoom=2, max_zoom=8, tiles=tile_url.as_posix(),control_scale = True,attr='World Map',crs='EPSG3857', name='World Map')
