@@ -17,7 +17,7 @@ import scipy as sp
 import scipy.ndimage
 import branca
 
-tile_url = Path('../World Map/tileshires/{z}/{x}/{-y}.png')
+tile_url = Path('./World Map/tileshires/{z}/{x}/{-y}.png')
 # Create a map centered at a specific location
 m = folium.Map(location=[40.7128, -74.0060], zoom_start=3, min_zoom=2, max_zoom=8, tiles=tile_url.as_posix(),control_scale = True,attr='World Map',crs='EPSG3857', name='World Map')
 
@@ -201,7 +201,7 @@ roads_highlight_function = lambda x: {
 folium.GeoJson(ClaimedTerritory.__geo_interface__,
                name="National Boundaries",
                style_function=lambda feature: {'fillColor': feature['properties']['RGBA'],
-                                               'color' : feature['properties']['RGBA'],
+                                               #'color' : feature['properties']['RGBA'],
                                                'weight' : 1,
                                                'fillOpacity' : 0.5},
                tooltip=folium.features.GeoJsonTooltip(["Territory"])
