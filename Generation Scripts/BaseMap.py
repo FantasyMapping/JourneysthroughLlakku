@@ -23,6 +23,8 @@ tile_url = Path('./World Map/tileshires/{z}/{x}/{-y}.png')
 # Create a map centered at a specific location
 m = folium.Map(location=[40.7128, -74.0060], zoom_start=3, min_zoom=2, max_zoom=8, tiles=tile_url.as_posix(),control_scale = True,attr='World Map',crs='EPSG3857', name='World Map')
 
+
+
 # rawimage=Path("C:/Users/lycea/Documents/40-49 Personal/48 Gaming/48.04 Greyhawk Campaign/World Map/Altitude 1 Tile/A000000.raw")
 # test=open(rawimage.as_posix(),'rb')
 # img = np.fromfile(test, dtype=np.float32,count=16000*32000).reshape(16000,32000)
@@ -77,10 +79,8 @@ m = folium.Map(location=[40.7128, -74.0060], zoom_start=3, min_zoom=2, max_zoom=
 #tile_layer = folium.TileLayer(tile_url, opacity=1, attr='My Tile Layer', name='My Tile Layer')
 #tile_layer.add_to(m)
 
-# Create a list of coordinates for the ship's journey
-coordinates = [[40.7128, -74.0060], [41.8781, -87.6298], [37.7749, -122.4194]]
+
 from folium.features import DivIcon
-p1 = coordinates[0]
 #folium.Marker(p1, icon=DivIcon(
 #        icon_size=(150,36),
 #        icon_anchor=(7,20),
@@ -88,7 +88,7 @@ p1 = coordinates[0]
 #        )).add_to(m)
 #m.add_child(folium.CircleMarker(p1, radius=15))
 # Define the path to the image file
-image_path = '../../../Documents/40-49 Personal/48 Gaming/48.04 Greyhawk Campaign/RailMap2.png'
+#image_path = '../../../Documents/40-49 Personal/48 Gaming/48.04 Greyhawk Campaign/RailMap2.png'
 
 # Define the boundaries of the image
 #image_bounds = [[60, -30.0060], [10, -130]]
@@ -118,9 +118,18 @@ folium.plugins.MousePosition(
     lng_formatter=formatter,
 ).add_to(m)
 # Create a feature group to hold the ship's marker
-#ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
+ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
 
 #ship icon
+# Create a list of coordinates for the ship's journey
+coordinates = [[40.7128, -74.0060], [41.8781, -87.6298], [37.7749, -122.4194]]
+current_location=[71.13099,-91.23047]
+redfortune_url=Path('./GreyscaleIcon.png')
+#icon = folium.features.CustomIcon(redfortune_url.as_posix(),
+#                                      icon_size=(64,64))
+
+#redfortune_static=folium.Marker(current_location,icon=icon).add_to(m)
+
 import geopandas as gpd
 from shapely.geometry import Polygon
 import pandas as pd
@@ -221,10 +230,10 @@ icon_path = '../../../Documents/40-49 Personal/48 Gaming/48.04 Greyhawk Campaign
 # GoldenHelm=[-99.60205,29.45873]
 # Pears=[-69.03809,53.56641]
 # Add the ship's marker to the feature group
-#folium.Marker(location=coordinates[0], popup='Ship',tooltip='Red Fortune', icon=folium.features.CustomIcon(icon_image=icon_path, icon_size=(50, 50))).add_to(ship_fg)
+folium.Marker(location=current_location, popup='Ship Location',tooltip='Fortuna Rubrum', icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(50, 50))).add_to(ship_fg)
 
 # Add the ship's feature group to the map
-#m.add_child(ship_fg)
+m.add_child(ship_fg)
 
 # Create a feature group to hold the ship's trajectory
 #trajectory_fg = folium.FeatureGroup(name='Trajectory')
