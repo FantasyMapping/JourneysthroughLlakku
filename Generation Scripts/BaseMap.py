@@ -224,13 +224,12 @@ for i in range(0,len(CityData)):
       popup=CityData.iloc[i]['Name'],
    ).add_to(m)
    
-icon_path = '../../../Documents/40-49 Personal/48 Gaming/48.04 Greyhawk Campaign/PC_Ship06.png'
 # Llewllaff=[-103.35938,10.31492]
 # YBent=[-93.66943,26.64746]
 # GoldenHelm=[-99.60205,29.45873]
 # Pears=[-69.03809,53.56641]
 # Add the ship's marker to the feature group
-folium.Marker(location=current_location, popup='Ship Location',tooltip='Fortuna Rubrum', icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(50, 50))).add_to(ship_fg)
+folium.Marker(location=current_location, popup='Ship Location',tooltip='Fortuna Rubrum', icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(2*72, 2*50))).add_to(ship_fg)
 
 # Add the ship's feature group to the map
 m.add_child(ship_fg)
