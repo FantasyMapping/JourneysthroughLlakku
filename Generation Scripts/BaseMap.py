@@ -124,7 +124,7 @@ ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
 # Create a list of coordinates for the ship's journey
 coordinates = [[40.7128, -74.0060], [41.8781, -87.6298], [37.7749, -122.4194]]
 current_location=[71.13099,-91.23047]
-redfortune_url=Path('./GreyscaleIcon.png')
+redfortune_url=Path('./RenderedRedFortune.png')
 #icon = folium.features.CustomIcon(redfortune_url.as_posix(),
 #                                      icon_size=(64,64))
 
