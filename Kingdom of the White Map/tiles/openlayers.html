@@ -79,8 +79,8 @@
                             extent: [-10363844.592854, 10387868.425977,-9261795.096283, 12316623.451071],
                             source: new ol.source.XYZ({
                                 attributions: '',
-                                minZoom: 6,
-                                maxZoom: 10,
+                                minZoom: 5,
+                                maxZoom: 11,
                                 url: './{z}/{x}/{-y}.png',
                                 tileSize: [256, 256]
                             })
@@ -90,7 +90,7 @@
             ],
             view: new ol.View({
                 center: [-9812819.844569, 11352245.938524],
-                zoom: 6,
+                zoom: 5,
             })
         });
         map.addControl(new ol.control.LayerSwitcher());
