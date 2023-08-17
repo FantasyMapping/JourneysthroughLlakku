@@ -16,7 +16,7 @@ import branca
 white_url = Path('../Kingdom of the White Map/Kingdom Of the WhiteScaled.png')
 white_url2 = Path('../Kingdom of the White Map/Kingdom Of the White.png')
 # Create a map centered at a specific location
-tile_url = Path('../Kingdom of the White Map/tiles/{z}/{x}/{-y}.png')
+tile_url = Path('./Kingdom of the White Map/tiles/{z}/{x}/{-y}.png')
 tile_url2 = Path('./World Map/tileshires/{z}/{x}/{-y}.png')
 # Create a map centered at a specific location
 m = folium.Map(location=[70, -90], zoom_start=6, min_zoom=6, max_zoom=10,control_scale = True,tiles=None)

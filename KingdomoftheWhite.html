@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_f71ca3544e4fb35b216235e33033d2f8 {
+                #map_afd2b33541e3c90ef56dd49a7b8e8422 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -41,14 +41,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_f71ca3544e4fb35b216235e33033d2f8" ></div>
+            <div class="folium-map" id="map_afd2b33541e3c90ef56dd49a7b8e8422" ></div>
         
 </body>
 <script>
     
     
-            var map_f71ca3544e4fb35b216235e33033d2f8 = L.map(
-                "map_f71ca3544e4fb35b216235e33033d2f8",
+            var map_afd2b33541e3c90ef56dd49a7b8e8422 = L.map(
+                "map_afd2b33541e3c90ef56dd49a7b8e8422",
                 {
                     center: [70.0, -90.0],
                     crs: L.CRS.EPSG3857,
@@ -57,48 +57,48 @@
                     preferCanvas: false,
                 }
             );
-            L.control.scale().addTo(map_f71ca3544e4fb35b216235e33033d2f8);
+            L.control.scale().addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
 
             
 
         
     
-            var tile_layer_4c5309b6198c63c5dc19c18da76dd8b2 = L.tileLayer(
-                "../Kingdom of the White Map/tiles/{z}/{x}/{-y}.png",
+            var tile_layer_65b98980094d94940e7b6097bc28ba0f = L.tileLayer(
+                "Kingdom of the White Map/tiles/{z}/{x}/{-y}.png",
                 {"attribution": "Russell", "crs": "EPSG3857", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_f71ca3544e4fb35b216235e33033d2f8);
+            ).addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
         
     
-            var tile_layer_2abbc2cda4aea77688e3fdc10b84c426 = L.tileLayer(
+            var tile_layer_f58dd32dce8507e7f50a6c4bf1000a6b = L.tileLayer(
                 "World Map/tileshires/{z}/{x}/{-y}.png",
                 {"attribution": "Russell", "crs": "EPSG3857", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_f71ca3544e4fb35b216235e33033d2f8);
+            ).addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
         
     
-            var layer_control_6e94c20c4c973e3b323b9e714d78c134 = {
+            var layer_control_9847fa091ebd828f1fdca78d077df072 = {
                 base_layers : {
-                    "Kingdom of the White" : tile_layer_4c5309b6198c63c5dc19c18da76dd8b2,
-                    "World Map" : tile_layer_2abbc2cda4aea77688e3fdc10b84c426,
+                    "Kingdom of the White" : tile_layer_65b98980094d94940e7b6097bc28ba0f,
+                    "World Map" : tile_layer_f58dd32dce8507e7f50a6c4bf1000a6b,
                 },
                 overlays :  {
                 },
             };
             L.control.layers(
-                layer_control_6e94c20c4c973e3b323b9e714d78c134.base_layers,
-                layer_control_6e94c20c4c973e3b323b9e714d78c134.overlays,
+                layer_control_9847fa091ebd828f1fdca78d077df072.base_layers,
+                layer_control_9847fa091ebd828f1fdca78d077df072.overlays,
                 {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_f71ca3544e4fb35b216235e33033d2f8);
-            tile_layer_2abbc2cda4aea77688e3fdc10b84c426.remove();
+            ).addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
+            tile_layer_f58dd32dce8507e7f50a6c4bf1000a6b.remove();
         
     
-            var mouse_position_5bf8d083f15d17776efc51c135a35625 = new L.Control.MousePosition(
+            var mouse_position_c45ff12461aa33d0ad8f945fbade9309 = new L.Control.MousePosition(
                 {"emptyString": "NaN", "lngFirst": true, "numDigits": 20, "position": "topright", "prefix": "Coordinates:", "separator": " | "}
             );
-            mouse_position_5bf8d083f15d17776efc51c135a35625.options["latFormatter"] =
+            mouse_position_c45ff12461aa33d0ad8f945fbade9309.options["latFormatter"] =
                 function(num) {return L.Util.formatNum(num, 5) + ' º ';};;
-            mouse_position_5bf8d083f15d17776efc51c135a35625.options["lngFormatter"] =
+            mouse_position_c45ff12461aa33d0ad8f945fbade9309.options["lngFormatter"] =
                 function(num) {return L.Util.formatNum(num, 5) + ' º ';};;
-            map_f71ca3544e4fb35b216235e33033d2f8.addControl(mouse_position_5bf8d083f15d17776efc51c135a35625);
+            map_afd2b33541e3c90ef56dd49a7b8e8422.addControl(mouse_position_c45ff12461aa33d0ad8f945fbade9309);
         
 </script>
 </html>
