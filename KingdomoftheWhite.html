@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_afd2b33541e3c90ef56dd49a7b8e8422 {
+                #map_e8951686fa682185cc413aca5cbad6bb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -41,14 +41,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_afd2b33541e3c90ef56dd49a7b8e8422" ></div>
+            <div class="folium-map" id="map_e8951686fa682185cc413aca5cbad6bb" ></div>
         
 </body>
 <script>
     
     
-            var map_afd2b33541e3c90ef56dd49a7b8e8422 = L.map(
-                "map_afd2b33541e3c90ef56dd49a7b8e8422",
+            var map_e8951686fa682185cc413aca5cbad6bb = L.map(
+                "map_e8951686fa682185cc413aca5cbad6bb",
                 {
                     center: [70.0, -90.0],
                     crs: L.CRS.EPSG3857,
@@ -57,48 +57,48 @@
                     preferCanvas: false,
                 }
             );
-            L.control.scale().addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
+            L.control.scale().addTo(map_e8951686fa682185cc413aca5cbad6bb);
 
             
 
         
     
-            var tile_layer_65b98980094d94940e7b6097bc28ba0f = L.tileLayer(
+            var tile_layer_4fad765b685268393e1f0d29b50ae177 = L.tileLayer(
                 "Kingdom of the White Map/tiles/{z}/{x}/{-y}.png",
                 {"attribution": "Russell", "crs": "EPSG3857", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
+            ).addTo(map_e8951686fa682185cc413aca5cbad6bb);
         
     
-            var tile_layer_f58dd32dce8507e7f50a6c4bf1000a6b = L.tileLayer(
+            var tile_layer_95a1830e3518e82740d7f3983ce0c822 = L.tileLayer(
                 "World Map/tileshires/{z}/{x}/{-y}.png",
                 {"attribution": "Russell", "crs": "EPSG3857", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
+            ).addTo(map_e8951686fa682185cc413aca5cbad6bb);
         
     
-            var layer_control_9847fa091ebd828f1fdca78d077df072 = {
+            var layer_control_6d1c4864b2db37eed69f4663372c8fab = {
                 base_layers : {
-                    "Kingdom of the White" : tile_layer_65b98980094d94940e7b6097bc28ba0f,
-                    "World Map" : tile_layer_f58dd32dce8507e7f50a6c4bf1000a6b,
+                    "Kingdom of the White" : tile_layer_4fad765b685268393e1f0d29b50ae177,
+                    "World Map" : tile_layer_95a1830e3518e82740d7f3983ce0c822,
                 },
                 overlays :  {
                 },
             };
             L.control.layers(
-                layer_control_9847fa091ebd828f1fdca78d077df072.base_layers,
-                layer_control_9847fa091ebd828f1fdca78d077df072.overlays,
+                layer_control_6d1c4864b2db37eed69f4663372c8fab.base_layers,
+                layer_control_6d1c4864b2db37eed69f4663372c8fab.overlays,
                 {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_afd2b33541e3c90ef56dd49a7b8e8422);
-            tile_layer_f58dd32dce8507e7f50a6c4bf1000a6b.remove();
+            ).addTo(map_e8951686fa682185cc413aca5cbad6bb);
+            tile_layer_95a1830e3518e82740d7f3983ce0c822.remove();
         
     
-            var mouse_position_c45ff12461aa33d0ad8f945fbade9309 = new L.Control.MousePosition(
+            var mouse_position_c1e0ae33bbffbfd9e770f8d8e93c3557 = new L.Control.MousePosition(
                 {"emptyString": "NaN", "lngFirst": true, "numDigits": 20, "position": "topright", "prefix": "Coordinates:", "separator": " | "}
             );
-            mouse_position_c45ff12461aa33d0ad8f945fbade9309.options["latFormatter"] =
+            mouse_position_c1e0ae33bbffbfd9e770f8d8e93c3557.options["latFormatter"] =
                 function(num) {return L.Util.formatNum(num, 5) + ' º ';};;
-            mouse_position_c45ff12461aa33d0ad8f945fbade9309.options["lngFormatter"] =
+            mouse_position_c1e0ae33bbffbfd9e770f8d8e93c3557.options["lngFormatter"] =
                 function(num) {return L.Util.formatNum(num, 5) + ' º ';};;
-            map_afd2b33541e3c90ef56dd49a7b8e8422.addControl(mouse_position_c45ff12461aa33d0ad8f945fbade9309);
+            map_e8951686fa682185cc413aca5cbad6bb.addControl(mouse_position_c1e0ae33bbffbfd9e770f8d8e93c3557);
         
 </script>
 </html>
