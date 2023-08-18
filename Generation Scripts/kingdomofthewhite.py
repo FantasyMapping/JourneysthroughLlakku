@@ -49,18 +49,26 @@ boundarypoints=[]
 for item in range(len(HiddenValley['Lat'])):
     boundarypoints.append([HiddenValley['Lat'][item],HiddenValley['Lon'][item]])
 HiddenValleyBoundary = Polygon(boundarypoints)
-WhiteRegions = gpd.GeoDataFrame(index=[0], crs="EPSG:4326", geometry=[HiddenValleyBoundary])
-WhiteRegions["Territory"]=['The Hidden Valley']
-WhiteRegions["RGBA"]=[[11, 127, 171, 1]]
+
+MilkyLake=pd.read_csv(Path(
+    "MilkyLake.csv").as_posix())
+boundarypoints=[]
+for item in range(len(MilkyLake['Lat'])):
+    boundarypoints.append([MilkyLake['Lat'][item],MilkyLake['Lon'][item]])
+
+MilkyLakeBoundary = Polygon(boundarypoints)
+WhiteRegions = gpd.GeoDataFrame(index=[0,1], crs="EPSG:4326", geometry=[HiddenValleyBoundary,MilkyLakeBoundary])
+WhiteRegions["Territory"]=['The Hidden Valley','Milky Lake']
+WhiteRegions["RGBA"]=[[11, 127, 171, 1],[11, 127, 171, 1]]
 data = pd.DataFrame({
    'lon':[-90.04669,-90.5287,-89.86954],
    'lat':[71.00087,70.01167,69.86375],
    'name':['Dragon Roost (HQ) <br> 7 Knights <br> 3 Archers','Bandit Broch (Ruined)','Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew']
 }, dtype=str)
 neutral=pd.DataFrame({
-    'lon':[-91.27441,-89.37927,-88.49487,-87.45117,-86.82495,-87.08313,-86.77551,-87.5116,-87.96553,-88.57178,-89.42322,-87.09961,-91.38977,-89.48914,-88.26965,-87.57202,-89.2197,-89.599,-89.77478,-90.53833,-91.42822,-90.30762],
-    'lat':[71.03928,71.44642,71.43767,71.68772,71.8682,70.79775,70.73804,70.69087,71.02053,70.86449,70.95611,71.37286,70.76882,70.75253,71.36409,71.83398,71.64637,71.61348,71.39916,71.34477,71.64464,72.25227],
-    'name':['Western Tower','Milky Lake','Waterfall Hamlet','Forest Hamlet','Mine Hamlet','Town of White Tooth','Icetooth Bay','Forest Bridge','Rainbow Bridge','Gold Mine','White River','Dark Forest','Western Forest','Misty Valley','Pastel River','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost?']
+    'lon':[-91.27441,-88.49487,-87.45117,-86.82495,-87.08313,-86.77551,-87.5116,-87.96553,-88.57178,-89.42322,-87.09961,-91.38977,-89.48914,-88.26965,-87.57202,-89.2197,-89.599,-89.77478,-90.53833,-91.42822,-90.30762],
+    'lat':[71.03928,71.43767,71.68772,71.8682,70.79775,70.73804,70.69087,71.02053,70.86449,70.95611,71.37286,70.76882,70.75253,71.36409,71.83398,71.64637,71.61348,71.39916,71.34477,71.64464,72.25227],
+    'name':['Western Tower','Waterfall Hamlet','Forest Hamlet','Mine Hamlet','Town of White Tooth','Icetooth Bay','Forest Bridge','Rainbow Bridge','Gold Mine','White River','Dark Forest','Western Forest','Misty Valley','Pastel River','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost?']
 },dtype=str)
 enemies=pd.DataFrame({
     'lon':[-89.65942,-89.41223],
