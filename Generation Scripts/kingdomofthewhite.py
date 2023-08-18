@@ -90,7 +90,7 @@ neutral=pd.DataFrame({
 enemies=pd.DataFrame({
     'lon':[-89.65942,-89.41223],
     'lat':[70.27892,70.27492],
-    'name':['Western Bullwark <br> (Internal Security','Last Refuge <br> (Penal Battalion)']
+    'name':['Western Bullwark <br> (Internal Security','Last Refuge <br> (Penal Battalion - 15th/Scum/Waiting) <br> 3 Medium Ballista <br> 1 Catapult <br> Mage - Bergman (Priest of Tyrant Tree) <br> Vampire - Becker <br> 3 Light Ballista on Rotating Cupola <br> 20 Undead Legionnaires']
 },dtype=str)
 for i in range(0,len(data)):
    folium.Marker(
