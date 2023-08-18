@@ -6,7 +6,7 @@ newmtl Wood_Floor_Dark
 Ka 0.000000 0.000000 0.000000
 Kd 0.600000 0.368627 0.164706
 Ks 0.330000 0.330000 0.330000
-map_Kd 02_trawlew ue4/Wood_Floor_Dark.jpg
+map_Kd 02_trawlew ue4/Wood_Floor_Dark_1.jpg
 
 newmtl M_07_boat_3_mix
 Ka 0.000000 0.000000 0.000000
@@ -513,7 +513,7 @@ newmtl _Wood_Floor_Dark_1
 Ka 0.000000 0.000000 0.000000
 Kd 0.600000 0.368627 0.164706
 Ks 0.330000 0.330000 0.330000
-map_Kd 02_trawlew ue4/_Wood_Floor_Dark_1.jpg
+map_Kd 02_trawlew ue4/Wood_Floor_Dark_1.jpg
 
 newmtl Blinds_Wood_Light
 Ka 0.000000 0.000000 0.000000
@@ -636,9 +636,9 @@ Kd 0.615686 0.615686 0.615686
 Ks 0.330000 0.330000 0.330000
 map_Kd 02_trawlew ue4/Metal_Galvanized_B_10cm.jpg
 
-newmtl _7
+newmtl 7
 Ka 0.000000 0.000000 0.000000
 Kd 0.600000 0.639216 0.654902
 Ks 0.330000 0.330000 0.330000
-map_Kd 02_trawlew ue4/_7.jpg
+map_Kd 02_trawlew ue4/7.jpg
 

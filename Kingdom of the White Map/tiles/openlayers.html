@@ -76,11 +76,11 @@
                         new ol.layer.Tile({
                             title: 'Overlay',
                             // opacity: 0.7,
-                            extent: [-10363844.592854, 10387868.425977,-9261795.096283, 12316623.451071],
+                            extent: [-10363844.592854, 10387883.934760,-9261728.364111, 12316623.451071],
                             source: new ol.source.XYZ({
                                 attributions: '',
-                                minZoom: 5,
-                                maxZoom: 11,
+                                minZoom: 1,
+                                maxZoom: 10,
                                 url: './{z}/{x}/{-y}.png',
                                 tileSize: [256, 256]
                             })
@@ -89,8 +89,8 @@
                 }),
             ],
             view: new ol.View({
-                center: [-9812819.844569, 11352245.938524],
-                zoom: 5,
+                center: [-9812786.478482, 11352253.692915],
+                zoom: 1,
             })
         });
         map.addControl(new ol.control.LayerSwitcher());
