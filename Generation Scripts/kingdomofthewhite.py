@@ -57,9 +57,26 @@ for item in range(len(MilkyLake['Lat'])):
     boundarypoints.append([MilkyLake['Lat'][item],MilkyLake['Lon'][item]])
 
 MilkyLakeBoundary = Polygon(boundarypoints)
-WhiteRegions = gpd.GeoDataFrame(index=[0,1], crs="EPSG:4326", geometry=[HiddenValleyBoundary,MilkyLakeBoundary])
-WhiteRegions["Territory"]=['The Hidden Valley','Milky Lake']
-WhiteRegions["RGBA"]=[[11, 127, 171, 1],[11, 127, 171, 1]]
+
+MistyValley=pd.read_csv(Path(
+    "MistyValley.csv").as_posix())
+boundarypoints=[]
+for item in range(len(MistyValley['Lat'])):
+    boundarypoints.append([MistyValley['Lat'][item],MistyValley['Lon'][item]])
+
+MistyValleyBoundary = Polygon(boundarypoints)
+
+LastRefuge=pd.read_csv(Path(
+    "TheLastRefuge.csv").as_posix())
+boundarypoints=[]
+for item in range(len(LastRefuge['Lat'])):
+    boundarypoints.append([LastRefuge['Lat'][item],LastRefuge['Lon'][item]])
+
+LastRefugeBoundary = Polygon(boundarypoints)
+
+WhiteRegions = gpd.GeoDataFrame(index=[0,1,2,3], crs="EPSG:4326", geometry=[HiddenValleyBoundary,MilkyLakeBoundary,MistyValleyBoundary,LastRefugeBoundary])
+WhiteRegions["Territory"]=['The Hidden Valley','Milky Lake','Misty Valley','The Last Refuge']
+WhiteRegions["RGBA"]=[[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1]]
 data = pd.DataFrame({
    'lon':[-90.04669,-90.5287,-89.86954],
    'lat':[71.00087,70.01167,69.86375],
