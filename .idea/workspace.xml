@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a99308fc-81d0-4d35-9d81-8bc6be90f47c" name="Changes" comment="Rendered color icon">
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Stormlands.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Generation Scripts/BaseMap.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/BaseMap.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KingdomoftheWhite.html" beforeDir="false" afterPath="$PROJECT_DIR$/KingdomoftheWhite.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Llakku.html" beforeDir="false" afterPath="$PROJECT_DIR$/Llakku.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +48,9 @@
       <recent name="C:\Users\lycea\PycharmProjects\JourneysthroughLlakku" />
       <recent name="C:\Users\lycea\PycharmProjects\JourneysthroughLlakku\Generation Scripts" />
       <recent name="C:\Users\lycea\PycharmProjects\JourneysthroughLlakku\Generation Scripts\Airship Assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lycea\PycharmProjects\JourneysthroughLlakku\Generation Scripts" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

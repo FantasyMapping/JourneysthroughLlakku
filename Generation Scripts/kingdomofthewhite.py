@@ -1,6 +1,6 @@
 
 import folium
-from folium.plugins import MeasureControl, MousePosition, MiniMap
+from folium.plugins import MeasureControl, MousePosition, MiniMap, TimestampedGeoJson
 from pathlib import Path
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -11,8 +11,32 @@ import scipy as sp
 import scipy.ndimage
 import branca
 
+def import_territory(filename):
+    point_lists = pd.read_csv(filename)
+    boundarypoints = []
+    for item in range(len(point_lists['Lat'])):
+        boundarypoints.append([point_lists['Lat'][item], point_lists['Lon'][item]])
+    territory = Polygon(boundarypoints)
+    return territory
 
+def generate_time_path(feature_group,points,info_text):
+    geo_features = list()
+    geo_json = {
+        'type': "FeatureCollection",
+        'features': geo_features,
+    }
 
+    TimestampedPath=TimestampedGeoJson(
+    data=geo_json,
+    period='P1D',
+    duration='P1D',
+    auto_play=False,
+    loop=False,
+    loop_button=True,
+    date_options='YYYY/MM/DD',
+
+    )
+    return TimestampedPath
 white_url = Path('../Kingdom of the White Map/Kingdom Of the WhiteScaled.png')
 white_url2 = Path('../Kingdom of the White Map/Kingdom Of the White.png')
 # Create a map centered at a specific location
@@ -43,40 +67,16 @@ import geopandas as gpd
 from shapely.geometry import Polygon, Point, LineString
 import pandas as pd
 
-HiddenValley=pd.read_csv(Path(
-    "HiddenValley.csv").as_posix())
-boundarypoints=[]
-for item in range(len(HiddenValley['Lat'])):
-    boundarypoints.append([HiddenValley['Lat'][item],HiddenValley['Lon'][item]])
-HiddenValleyBoundary = Polygon(boundarypoints)
+HiddenValleyBoundary=import_territory(Path("HiddenValley.csv").as_posix())
+StormLandsBoundary=import_territory(Path("Stormlands.csv").as_posix())
+MilkyLakeBoundary=import_territory(Path("MilkyLake.csv").as_posix())
+MistyValleyBoundary=import_territory(Path("MistyValley.csv").as_posix())
+LastRefugeBoundary=import_territory(Path("TheLastRefuge.csv").as_posix())
 
-MilkyLake=pd.read_csv(Path(
-    "MilkyLake.csv").as_posix())
-boundarypoints=[]
-for item in range(len(MilkyLake['Lat'])):
-    boundarypoints.append([MilkyLake['Lat'][item],MilkyLake['Lon'][item]])
 
-MilkyLakeBoundary = Polygon(boundarypoints)
-
-MistyValley=pd.read_csv(Path(
-    "MistyValley.csv").as_posix())
-boundarypoints=[]
-for item in range(len(MistyValley['Lat'])):
-    boundarypoints.append([MistyValley['Lat'][item],MistyValley['Lon'][item]])
-
-MistyValleyBoundary = Polygon(boundarypoints)
-
-LastRefuge=pd.read_csv(Path(
-    "TheLastRefuge.csv").as_posix())
-boundarypoints=[]
-for item in range(len(LastRefuge['Lat'])):
-    boundarypoints.append([LastRefuge['Lat'][item],LastRefuge['Lon'][item]])
-
-LastRefugeBoundary = Polygon(boundarypoints)
-
-WhiteRegions = gpd.GeoDataFrame(index=[0,1,2,3], crs="EPSG:4326", geometry=[HiddenValleyBoundary,MilkyLakeBoundary,MistyValleyBoundary,LastRefugeBoundary])
-WhiteRegions["Territory"]=['The Hidden Valley','Milky Lake','Misty Valley','The Last Refuge']
-WhiteRegions["RGBA"]=[[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1]]
+WhiteRegions = gpd.GeoDataFrame(index=[0,1,2,3,4], crs="EPSG:4326", geometry=[HiddenValleyBoundary,MilkyLakeBoundary,MistyValleyBoundary,LastRefugeBoundary,StormLandsBoundary])
+WhiteRegions["Territory"]=['The Hidden Valley','Milky Lake','Misty Valley','The Last Refuge','The Stormlands']
+WhiteRegions["RGBA"]=[[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1],[11, 127, 171, 1]]
 data = pd.DataFrame({
    'lon':[-90.04669,-90.5287,-89.86954],
    'lat':[71.00087,70.01167,69.86375],
@@ -143,12 +143,23 @@ folium.GeoJson(WhiteRegions.__geo_interface__,
                                                'fillOpacity' : 0.5},
                tooltip=folium.features.GeoJsonTooltip(["Territory"])
                ).add_to(m)
+point_lists = pd.read_csv(Path("FlightoftheRedFortune_WinterCampaign.csv").as_posix())
+travelpoints = []
+for item in range(len(point_lists['Lat'])):
+    travelpoints.append([point_lists['Lat'][item], point_lists['Lon'][item]])
 
+travel_text=['Entry into Theatre','Dogfight with Internal Security Zeppling <br> Victory','Securing of Home Roost','Battle with Wounded White Dragon','Storming of the Storm Castle <br> Internal Security damages the Red Fortune <br> White Dragon Tribesmen rescued and released in friendship','Intelligence Gathering on Last Refuge <br> Alex, Jasper, and the Captain negotiate with the 15th in the village','Preparations for the Attack']
 CampaignPath=gpd.GeoDataFrame({
     'Flight of the Red Fortune':['Flight Path'],
     'geometry':[LineString([(71.00087,-90.04669),(70.01167,-90.5287),(69.86375,-89.86954)])]},
     crs="EPSG:4326")
 
+current_location=[69.86375,-89.86954]
+redfortune_url=Path('./RenderedRedFortune.png')
+ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
+folium.Marker(location=current_location, popup='Ship Location',tooltip='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew', icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(2*72, 2*50))).add_to(ship_fg)
+# Add the ship's feature group to the map
+m.add_child(ship_fg)
 
 folium.LayerControl().add_to(m)
 # Display the map
