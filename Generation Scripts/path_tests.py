@@ -64,6 +64,11 @@ point_list = pd.read_csv('FlightoftheRedFortune_WinterCampaign.csv',parse_dates=
 fine_detail=point_list.resample('60min').interpolate(method='linear')
 # Create a TimestampedGeoJSON object
 #angle=0
+coords=[]
+for i in range(len(fine_detail)):
+    coords.append([])
+    for inc in range(i):
+        coords[i].append([fine_detail['Lat'].iloc[inc], fine_detail['Lon'].iloc[inc]])
 features = []
 for i in range(len(fine_detail)):
     if i<len(fine_detail)-1:
@@ -87,6 +92,17 @@ for i in range(len(fine_detail)):
       }
     }
     features.append(feature)
+    features.append({
+        'type': "Feature",
+        'properties':{
+            'name': 'Ground Track',
+            'style': {'color': 'red', 'weight': 2,'marker': False},
+            'times': [fine_detail.index[i].strftime('%Y-%m-%d %X')]*i},
+
+        'geometry':{
+            'type': "LineString",
+            'coordinates': coords[i]}
+        })
 
 # Create the GeoJSON object
 geojson = {

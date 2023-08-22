@@ -71,30 +71,42 @@ def generate_time_path():
     fine_detail=point_list.resample('60min').interpolate(method='linear')
     # Create a TimestampedGeoJSON object
     #angle=0
-    features = []
+    coords=[]
+    for i in range(len(fine_detail)):
+        coords.append([])
+        for inc in range(i):
+            coords[i].append([fine_detail['Lat'].iloc[inc], fine_detail['Lon'].iloc[inc]])
+    
+    features = list()
     for i in range(len(fine_detail)):
         if i<len(fine_detail)-1:
             position=np.array([fine_detail['Lat'].iloc[i], fine_detail['Lon'].iloc[i]])
             next_position=np.array([fine_detail['Lat'].iloc[i+1], fine_detail['Lon'].iloc[i+1]])
             angle=bearing(position,next_position)
         feature = {
-          'type': 'Feature',
-          'geometry': {
+            'type': 'Feature',
+            'geometry': {
             'type': 'Point',
             'coordinates': [fine_detail['Lat'].iloc[i], fine_detail['Lon'].iloc[i]]
           },
           'properties': {
               'icon': 'marker',
-                      'iconstyle':{
-                          'iconUrl': Path("./Generation Scripts/").joinpath(rfindex[indexinground(angle,base=1)][0]).as_posix(),
-                          'iconSize': [100, 100],
-                          'fillOpacity': 1},
-                      
+              'iconstyle':{
+                  'iconUrl': Path("./Generation Scripts/").joinpath(rfindex[indexinground(angle,base=1)][0]).as_posix(),
+                  'iconSize': [100, 100],
+                  'fillOpacity': 1},
+              'popup': "Red Fortune",
+              'name':  '',
+              'style': {'color': 'black', 'weight': 4,'stroke-dasharray':4},        
               'time': fine_detail.index[i].strftime('%Y-%m-%d %X')
           }
         }
         features.append(feature)
+        
+    
 
+        
+        
     # Create the GeoJSON object
     geojson = {
       'type': 'FeatureCollection',
