@@ -13,7 +13,7 @@ import numpy as np
 
 def bearing(position,next_position):
     diff=np.radians(next_position)-np.radians(position)
-    angle=np.degrees(np.arctan2(diff[1],diff[0]))% 360
+    angle=np.degrees((np.arctan2(diff[1],diff[0]))+0)% 360
     return angle
 
 def rotated_ship(position,angle=0,
@@ -56,10 +56,10 @@ rfindex=index_ship_headings(Path('./Airship Assets/Airship Headings/RenderedRedF
 
 # Import the CSV file
 
-point_list = pd.read_csv('FlightoftheRedFortune_WinterCampaign.csv')
+point_list = pd.read_csv('FlightoftheRedFortune_WinterCampaign.csv',parse_dates=True, index_col='datetime')
 #create time index
-point_list['datetime']=pd.date_range(start='2023-08-22 12:00:00',end='2023-08-29 12:00:00',periods=len(point_list))
-point_list.set_index('datetime',inplace=True)
+#point_list['datetime']=pd.date_range(start='2023-08-22 12:00:00',end='2023-08-29 12:00:00',periods=len(point_list))
+#point_list.set_index('datetime',inplace=True)
 
 fine_detail=point_list.resample('60min').interpolate(method='linear')
 # Create a TimestampedGeoJSON object

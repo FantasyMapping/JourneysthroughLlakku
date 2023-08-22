@@ -63,10 +63,10 @@ def index_ship_headings(parent):
 
 
 def generate_time_path():
-    point_list = pd.read_csv('FlightoftheRedFortune_WinterCampaign.csv')
+    point_list = pd.read_csv('FlightoftheRedFortune_WinterCampaign.csv',parse_dates=True, index_col='datetime')
     #create time index
-    point_list['datetime']=pd.date_range(start='2023-08-22 12:00:00',end='2023-08-29 12:00:00',periods=len(point_list))
-    point_list.set_index('datetime',inplace=True)
+    #point_list['datetime']=pd.date_range(start='2023-08-22 12:00:00',end='2023-08-29 12:00:00',periods=len(point_list))
+    #point_list.set_index('datetime',inplace=True)
     rfindex=index_ship_headings(Path('./Airship Assets/Airship Headings/RenderedRedFortune00deg.png').parent)
     fine_detail=point_list.resample('60min').interpolate(method='linear')
     # Create a TimestampedGeoJSON object
