@@ -15,7 +15,7 @@ def rotate_image(img, angle,size):
     return cv2.warpAffine(img, M, tuple(size))
 
 #create new headings
-headings=np.linspace(0,360,37)
+headings=np.linspace(0,360,361)
 for angle in headings:
     rotated_image1 = rotate_image(Original_Image,angle,size=[4000,4000])
     cv2.imwrite("Airship Assets/Airship Headings/RenderedRedFortune{:02d}deg.png".format(int(angle)),rotated_image1)

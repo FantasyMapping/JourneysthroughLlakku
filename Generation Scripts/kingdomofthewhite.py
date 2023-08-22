@@ -22,21 +22,17 @@ def import_territory(filename):
     territory = Polygon(boundarypoints)
     return territory
 
+def bearing(position,next_position):
+    diff=next_position-position
+    angle=np.degrees(np.arctan2(diff[1],diff[0]))% 360
+    return angle
+
 def rotated_ship(position,angle=0,
                    icon_size=(2*72,2*50),
                    tooltip_str='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
                    popup_str='Ship Location'):
 
-    import re
-    redfortune_url_parent = Path('./Airship Assets/Airship Headings/RenderedRedFortune00deg.png').parent
-    rfindex={}
-    for file in redfortune_url_parent.iterdir():
-        if any(c.isdigit() for c in file.name):
-            # get number
-            number = int(re.findall(r'\d+', file.name)[0])
-            if number not in rfindex:
-                rfindex[number] = []
-            rfindex[number].append(file)
+    rfindex=index_ship_headings(Path('./Airship Assets/Airship Headings/RenderedRedFortune00deg.png').parent)
 
     r_marker=folium.Marker(location=position,
                            popup=popup_str,
@@ -48,23 +44,71 @@ def rotated_ship(position,angle=0,
 
 
     return r_marker
-def generate_time_path(feature_group,points,info_text):
-    geo_features = list()
-    geo_json = {
-        'type': "FeatureCollection",
-        'features': geo_features,
+
+
+
+def index_ship_headings(parent):
+    import re
+    
+    rfindex={}
+    for file in parent.iterdir():
+        if any(c.isdigit() for c in file.name):
+            # get number
+            number = int(re.findall(r'\d+', file.name)[0])
+            if number not in rfindex:
+                rfindex[number] = []
+            rfindex[number].append(file)
+            
+    return rfindex
+
+
+def generate_time_path():
+    point_list = pd.read_csv('FlightoftheRedFortune_WinterCampaign.csv')
+    #create time index
+    point_list['datetime']=pd.date_range(start='2023-08-22 12:00:00',end='2023-08-29 12:00:00',periods=len(point_list))
+    point_list.set_index('datetime',inplace=True)
+    rfindex=index_ship_headings(Path('./Airship Assets/Airship Headings/RenderedRedFortune00deg.png').parent)
+    fine_detail=point_list.resample('60min').interpolate(method='linear')
+    # Create a TimestampedGeoJSON object
+    #angle=0
+    features = []
+    for i in range(len(fine_detail)):
+        if i<len(fine_detail)-1:
+            position=np.array([fine_detail['Lat'].iloc[i], fine_detail['Lon'].iloc[i]])
+            next_position=np.array([fine_detail['Lat'].iloc[i+1], fine_detail['Lon'].iloc[i+1]])
+            angle=bearing(position,next_position)
+        feature = {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [fine_detail['Lat'].iloc[i], fine_detail['Lon'].iloc[i]]
+          },
+          'properties': {
+              'icon': 'marker',
+                      'iconstyle':{
+                          'iconUrl': Path("./Generation Scripts/").joinpath(rfindex[indexinground(angle,base=1)][0]).as_posix(),
+                          'iconSize': [100, 100],
+                          'fillOpacity': 1},
+                      
+              'time': fine_detail.index[i].strftime('%Y-%m-%d %X')
+          }
+        }
+        features.append(feature)
+
+    # Create the GeoJSON object
+    geojson = {
+      'type': 'FeatureCollection',
+      'features': features
     }
-
+    
     TimestampedPath=TimestampedGeoJson(
-    data=geo_json,
-    period='P1D',
-    duration='P1D',
-    auto_play=False,
-    loop=False,
-    loop_button=True,
-    date_options='YYYY/MM/DD',
-
-    )
+                       data=geojson,
+        period='PT1H',
+        duration='PT1M',
+        auto_play=True,
+        loop=False,
+        loop_button=True,
+        date_options='YYYY/MM/DD',)
     return TimestampedPath
 white_url = Path('../Kingdom of the White Map/Kingdom Of the WhiteScaled.png')
 white_url2 = Path('../Kingdom of the White Map/Kingdom Of the White.png')
@@ -190,14 +234,15 @@ ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
 #              popup='Ship Location',
 #              tooltip='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
 #              icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(2*72, 2*50))).add_to(ship_fg)
-temp_ship=rotated_ship(current_location,angle=30,
-                   icon_size=(2*72,2*72),
-                   tooltip_str='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
-                   popup_str='Ship Location')
-temp_ship.add_to(ship_fg)
+#temp_ship=rotated_ship(current_location,angle=30,
+#                   icon_size=(2*72,2*72),
+#                   tooltip_str='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
+#                   popup_str='Ship Location')
+#temp_ship.add_to(ship_fg)
 # Add the ship's feature group to the map
-m.add_child(ship_fg)
-
+#m.add_child(ship_fg)
+timepath=generate_time_path()
+m.add_child(timepath)
 folium.LayerControl().add_to(m)
 # Display the map
 m.save("../KingdomoftheWhite.html")
