@@ -2,12 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a99308fc-81d0-4d35-9d81-8bc6be90f47c" name="Changes" comment="Rendered color icon">
-      <change afterPath="$PROJECT_DIR$/Generation Scripts/Stormlands.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune00deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune100deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune10deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune110deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune120deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune130deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune140deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune150deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune160deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune170deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune180deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune190deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune200deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune20deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune210deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune220deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune230deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune240deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune250deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune260deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune270deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune280deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune290deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune300deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune30deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune310deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune320deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune330deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune340deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune350deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune360deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune40deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune50deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune60deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune70deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune80deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/Airship Assets/Airship Headings/RenderedRedFortune90deg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/airship_headings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generation Scripts/BaseMap.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/BaseMap.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KingdomoftheWhite.html" beforeDir="false" afterPath="$PROJECT_DIR$/KingdomoftheWhite.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Llakku.html" beforeDir="false" afterPath="$PROJECT_DIR$/Llakku.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

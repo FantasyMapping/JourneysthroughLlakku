@@ -11,6 +11,9 @@ import scipy as sp
 import scipy.ndimage
 import branca
 
+def indexinground(x, base=10):
+    return int(base * round(float(x)/base))
+
 def import_territory(filename):
     point_lists = pd.read_csv(filename)
     boundarypoints = []
@@ -19,6 +22,32 @@ def import_territory(filename):
     territory = Polygon(boundarypoints)
     return territory
 
+def rotated_ship(position,angle=0,
+                   icon_size=(2*72,2*50),
+                   tooltip_str='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
+                   popup_str='Ship Location'):
+
+    import re
+    redfortune_url_parent = Path('./Airship Assets/Airship Headings/RenderedRedFortune00deg.png').parent
+    rfindex={}
+    for file in redfortune_url_parent.iterdir():
+        if any(c.isdigit() for c in file.name):
+            # get number
+            number = int(re.findall(r'\d+', file.name)[0])
+            if number not in rfindex:
+                rfindex[number] = []
+            rfindex[number].append(file)
+
+    r_marker=folium.Marker(location=position,
+                           popup=popup_str,
+                           tooltip=tooltip_str,
+                           #icon=folium.Icon(color='lightgray',icon='glyphicon-flag'),
+                           icon=folium.features.CustomIcon(icon_image=rfindex[indexinground(angle)][0].as_posix(),
+                                                           icon_size=icon_size),
+                           angle=angle)
+
+
+    return r_marker
 def generate_time_path(feature_group,points,info_text):
     geo_features = list()
     geo_json = {
@@ -155,9 +184,17 @@ CampaignPath=gpd.GeoDataFrame({
     crs="EPSG:4326")
 
 current_location=[69.86375,-89.86954]
-redfortune_url=Path('./RenderedRedFortune.png')
+
 ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
-folium.Marker(location=current_location, popup='Ship Location',tooltip='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew', icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(2*72, 2*50))).add_to(ship_fg)
+#folium.Marker(location=current_location,
+#              popup='Ship Location',
+#              tooltip='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
+#              icon=folium.features.CustomIcon(icon_image=redfortune_url.as_posix(), icon_size=(2*72, 2*50))).add_to(ship_fg)
+temp_ship=rotated_ship(current_location,angle=30,
+                   icon_size=(2*72,2*72),
+                   tooltip_str='Fortuna Rubrum <br> Docked at Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew',
+                   popup_str='Ship Location')
+temp_ship.add_to(ship_fg)
 # Add the ship's feature group to the map
 m.add_child(ship_fg)
 
