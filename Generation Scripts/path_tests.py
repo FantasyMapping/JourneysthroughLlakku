@@ -96,7 +96,7 @@ for i in range(len(fine_detail)):
         'type': "Feature",
         'properties':{
             'name': 'Ground Track',
-            'style': {'color': 'red', 'weight': 2,'marker': False},
+            'style': {'color': 'red', 'weight': 6},
             'times': [fine_detail.index[i].strftime('%Y-%m-%d %X')]*i},
 
         'geometry':{

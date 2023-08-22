@@ -83,6 +83,23 @@ def generate_time_path():
             position=np.array([fine_detail['Lat'].iloc[i], fine_detail['Lon'].iloc[i]])
             next_position=np.array([fine_detail['Lat'].iloc[i+1], fine_detail['Lon'].iloc[i+1]])
             angle=bearing(position,next_position)
+        features.append({
+            'type': "Feature",
+            'properties': {
+                #'name': 'Ground Track',
+              'icon': 'marker',
+              'iconstyle':{
+                  'iconUrl': Path("./Generation Scripts/").joinpath(rfindex[indexinground(angle,base=1)][0]).as_posix(),
+                  'iconSize': [0.1, 0.1],
+                  'fillOpacity': 1},
+                'style': {'color': 'red', 'weight': 6},
+                'times': [fine_detail.index[i].strftime('%Y-%m-%d %X')] * i,
+                'tooltip':"Ground Path"},
+
+            'geometry': {
+                'type': "LineString",
+                'coordinates': coords[i]}
+        })
         feature = {
             'type': 'Feature',
             'geometry': {
@@ -117,6 +134,7 @@ def generate_time_path():
                        data=geojson,
         period='PT1H',
         duration='PT1M',
+        transition_time=100,
         auto_play=True,
         loop=False,
         loop_button=True,
