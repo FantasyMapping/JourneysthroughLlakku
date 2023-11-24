@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a99308fc-81d0-4d35-9d81-8bc6be90f47c" name="Changes" comment="Rendered color icon">
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/TheCauldron.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/WesternTower-WestSide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generation Scripts/WesternTowerPlan.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JourneysthroughLlakku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JourneysthroughLlakku.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Generation Scripts/FlightoftheRedFortune_WinterCampaign.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/FlightoftheRedFortune_WinterCampaign.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generation Scripts/path_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/path_tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KingdomoftheWhite.html" beforeDir="false" afterPath="$PROJECT_DIR$/KingdomoftheWhite.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,12 +30,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="4321ab2c-621f-4444-9a09-bb2f96e8d5a6" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2SGOUSm6Rz6BSO6Ieeqn2gCMdfa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,6 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/lycea/PycharmProjects/JourneysthroughLlakku&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }

@@ -1,8 +1,10 @@
 
 import folium
-from folium.plugins import MeasureControl, MousePosition, MiniMap, TimestampedGeoJson
+from folium.plugins import MeasureControl, MousePosition, MiniMap, TimestampedGeoJson, Draw
 from pathlib import Path
 import matplotlib.pyplot as plt
+
+import base64
 from pathlib import Path
 from scipy.interpolate import griddata
 import geojsoncontour
@@ -10,6 +12,7 @@ import numpy as np
 import scipy as sp
 import scipy.ndimage
 import branca
+
 
 def indexinground(x, base=10):
     return int(base * round(float(x)/base))
@@ -185,15 +188,24 @@ data = pd.DataFrame({
    'lat':[71.00087,70.01167,69.86375],
    'name':['Dragon Roost (HQ) <br> 7 Knights <br> 3 Archers','Bandit Broch (Ruined)','Storm Castle <br> 21 Knights <br> 3 Archers <br> Zepplin Crew <br> Medical Crew']
 }, dtype=str)
+encoded = base64.b64encode(open('WesternTower-WestSide.png', 'rb').read()).decode()
+html = '<img src="data:image/png;base64,{}">'.format
+
+iframe = folium.IFrame(html(encoded), width=632+20, height=420+20)
+
+popup = folium.Popup(iframe, max_width=2650)
+marker = folium.Marker([71.03928,-91.27441], popup=popup, tooltip='Western Tower',icon=folium.Icon(color='lightgray',icon='glyphicon-flag')).add_to(m)
+
+#Western Tower -91.27441,71.03928
 neutral=pd.DataFrame({
-    'lon':[-91.27441,-88.49487,-87.45117,-86.82495,-87.08313,-86.77551,-87.5116,-87.96553,-88.57178,-89.42322,-87.09961,-91.38977,-89.48914,-88.26965,-87.57202,-89.2197,-89.599,-89.77478,-90.53833,-91.42822,-90.30762],
-    'lat':[71.03928,71.43767,71.68772,71.8682,70.79775,70.73804,70.69087,71.02053,70.86449,70.95611,71.37286,70.76882,70.75253,71.36409,71.83398,71.64637,71.61348,71.39916,71.34477,71.64464,72.25227],
-    'name':['Western Tower','Waterfall Hamlet','Forest Hamlet','Mine Hamlet','Town of White Tooth','Icetooth Bay','Forest Bridge','Rainbow Bridge','Gold Mine','White River','Dark Forest','Western Forest','Misty Valley','Pastel River','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost?']
+    'lon':[-88.49487,-87.45117,-86.82495,-87.08313,-86.77551,-87.5116,-87.96553,-88.57178,-89.42322,-87.09961,-91.38977,-89.48914,-88.26965,-87.57202,-89.2197,-89.599,-89.77478,-90.53833,-91.42822,-90.30762],
+    'lat':[71.43767,71.68772,71.8682,70.79775,70.73804,70.69087,71.02053,70.86449,70.95611,71.37286,70.76882,70.75253,71.36409,71.83398,71.64637,71.61348,71.39916,71.34477,71.64464,72.25227],
+    'name':['Waterfall Hamlet','Forest Hamlet','Mine Hamlet','Town of White Tooth','Icetooth Bay','Forest Bridge','Rainbow Bridge','Gold Mine','White River','Dark Forest','Western Forest','Misty Valley','Pastel River','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost','Dragon Roost?']
 },dtype=str)
 enemies=pd.DataFrame({
     'lon':[-89.65942,-89.41223],
     'lat':[70.27892,70.27492],
-    'name':['Western Bullwark <br> (Internal Security','Last Refuge <br> (Penal Battalion - 15th/Scum/Waiting) <br> 3 Medium Ballista <br> 1 Catapult <br> Mage - Bergman (Priest of Tyrant Tree) <br> Vampire - Becker <br> 3 Light Ballista on Rotating Cupola <br> 20 Undead Legionnaires']
+    'name':['Western Bullwark <br> (Internal Security) <br> Dr Zeiss (Kidnapped Youths from Last Refuge)','Last Refuge <br> (Penal Battalion - 15th/Scum/Waiting) <br> 3 Medium Ballista <br> 1 Catapult <br> Mage - Bergman (Priest of Tyrant Tree) <br> Vampire - Becker <br> 3 Light Ballista on Rotating Cupola <br> 20 Undead Legionnaires']
 },dtype=str)
 for i in range(0,len(data)):
    folium.Marker(
@@ -251,7 +263,7 @@ travelpoints = []
 for item in range(len(point_lists['Lat'])):
     travelpoints.append([point_lists['Lat'][item], point_lists['Lon'][item]])
 
-travel_text=['Entry into Theatre','Dogfight with Internal Security Zeppling <br> Victory','Securing of Home Roost','Battle with Wounded White Dragon','Storming of the Storm Castle <br> Internal Security damages the Red Fortune <br> White Dragon Tribesmen rescued and released in friendship','Intelligence Gathering on Last Refuge <br> Alex, Jasper, and the Captain negotiate with the 15th in the village','Preparations for the Attack']
+travel_text=['Entry into Theatre','Dogfight with Internal Security Zeppling <br> Victory','Securing of Home Roost','Battle with Wounded White Dragon','Storming of the Storm Castle <br> Internal Security damages the Red Fortune <br> White Dragon Tribesmen rescued and released in friendship','Intelligence Gathering on Last Refuge <br> Alex, Jasper, and the Captain negotiate with the 15th in the village','Preparations for the Attack','Last Refuge taken with the 15th <br> Bergman escaped without Spellbook <br> Decker escaped <br>']
 CampaignPath=gpd.GeoDataFrame({
     'Flight of the Red Fortune':['Flight Path'],
     'geometry':[LineString([(71.00087,-90.04669),(70.01167,-90.5287),(69.86375,-89.86954)])]},
@@ -274,5 +286,7 @@ ship_fg = folium.FeatureGroup(name='Fortuna Rubrum')
 timepath=generate_time_path()
 m.add_child(timepath)
 folium.LayerControl().add_to(m)
+draw = Draw(export=True)
+draw.add_to(m)
 # Display the map
 m.save("../KingdomoftheWhite.html")

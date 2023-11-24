@@ -1,12 +1,13 @@
-datetime,Lat,Lon
-2023-08-22 12:00:00,-91.8957,68.0651
-2023-08-23 16:00:00,-91.42822,69.59589
-2023-08-24 20:00:00,-90.04669,71.06087
-2023-08-25 20:00:00,-90.04669,71.06087
-2023-08-26 20:00:00,-90.5287,70.01167
-2023-08-27 20:00:00,-90.5287,70.01167
-2023-08-28 20:00:00,-89.86954,69.86375
-2023-08-29 20:00:00,-89.86954,69.86375
-2023-08-30 20:00:00,-88.9151,70.15762
-2023-09-01 20:00:00,-88.9151,70.15762
-2023-09-02 20:00:00,-89.86954,69.86375
+datetime,Lat,Lon,Events
+2023-08-22 12:00:00,-91.8957,68.0651,Entry into Theatre
+2023-08-23 16:00:00,-91.42822,69.59589,Dogfight with Internal Security Zeppelin <br> Victory
+2023-08-24 20:00:00,-90.04669,71.06087,Securing of Home Roost
+2023-08-25 20:00:00,-90.04669,71.06087,Battle with Wounded White Dragon
+2023-08-26 20:00:00,-90.5287,70.01167,Storming of the Storm Castle <br> Internal Security damages the Red Fortune <br> White Dragon Tribesmen rescued and released in friendship
+2023-08-27 20:00:00,-90.5287,70.01167,Intelligence Gathering on Last Refuge <br> Alex Jasper and the Captain negotiate with the 15th in the village
+2023-08-28 20:00:00,-89.86954,69.86375,Preparations for the Attack
+2023-08-29 20:00:00,-89.86954,69.86375,None
+2023-08-30 20:00:00,-88.9151,70.15762,None
+2023-09-01 20:00:00,-88.9151,70.15762,None
+2023-09-02 20:00:00,-89.86954,69.86375,None
+2023-09-04 20:00:00,-89.41223,70.27492,Last Refuge taken with the 15th <br> Bergman escaped without Spellbook <br> Decker escaped <br>
