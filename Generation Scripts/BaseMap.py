@@ -250,6 +250,7 @@ folium.LayerControl().add_to(m)
 #m.add_child(cm)
 #add minimap
 #MiniMap(tile_layer=tile_url,attr='World Map').add_to(m)
-
+draw = Draw(export=True)
+draw.add_to(m)
 # Display the map
 m.save("../Llakku.html")
