@@ -6,7 +6,7 @@ Created on Fri Mar 10 20:16:14 2023
 """
 
 import folium
-from folium.plugins import MeasureControl, MousePosition, MiniMap
+from folium.plugins import MeasureControl, MousePosition, MiniMap, Draw
 from pathlib import Path
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -23,7 +23,8 @@ tile_url = Path('./World Map/tileshires/{z}/{x}/{-y}.png')
 # Create a map centered at a specific location
 m = folium.Map(location=[40.7128, -74.0060], zoom_start=3, min_zoom=2, max_zoom=8, tiles=tile_url.as_posix(),control_scale = True,attr='World Map',crs='EPSG3857', name='World Map')
 
-
+draw = Draw(export=True)
+draw.add_to(m)
 
 # rawimage=Path("C:/Users/lycea/Documents/40-49 Personal/48 Gaming/48.04 Greyhawk Campaign/World Map/Altitude 1 Tile/A000000.raw")
 # test=open(rawimage.as_posix(),'rb')
