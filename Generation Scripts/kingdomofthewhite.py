@@ -195,6 +195,13 @@ iframe = folium.IFrame(html(encoded), width=632+20, height=420+20)
 
 popup = folium.Popup(iframe, max_width=2650)
 marker = folium.Marker([71.03928,-91.27441], popup=popup, tooltip='Western Tower',icon=folium.Icon(color='lightgray',icon='glyphicon-flag')).add_to(m)
+BlackRiver=pd.DataFrame({'lon':[-90.420227],'lat':[71.805699],'name':['Town of Black River'],'info':['The town of Black River <br> Controlled by the Descendants, bioaugmented creatures which seem to feed on the blood of the townspeople. They live in a dropped in grae city bunker, and there is a massive ghostnet tended by an iron golem, and an entire town of ghosts appears at night']},dtype=str)
+folium.Marker(
+      location=[BlackRiver.iloc[0]['lat'], BlackRiver.iloc[0]['lon']],
+      popup=BlackRiver.iloc[0]['info'],
+      tooltip=BlackRiver.iloc[0]['name'],
+      icon=folium.Icon(color='darkpurple',icon='glyphicon-flag')
+   ).add_to(m)
 
 #Western Tower -91.27441,71.03928
 neutral=pd.DataFrame({

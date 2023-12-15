@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a99308fc-81d0-4d35-9d81-8bc6be90f47c" name="Changes" comment="Rendered color icon">
-      <change afterPath="$PROJECT_DIR$/Generation Scripts/TheCauldron.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Generation Scripts/WesternTower-WestSide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Generation Scripts/WesternTowerPlan.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JourneysthroughLlakku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JourneysthroughLlakku.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generation Scripts/FlightoftheRedFortune_WinterCampaign.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/FlightoftheRedFortune_WinterCampaign.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generation Scripts/kingdomofthewhite.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KingdomoftheWhite.html" beforeDir="false" afterPath="$PROJECT_DIR$/KingdomoftheWhite.html" afterDir="false" />
     </list>
@@ -104,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691157010811</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Rendered color icon">
+      <option name="closed" value="true" />
+      <created>1700868288328</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700868288328</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
